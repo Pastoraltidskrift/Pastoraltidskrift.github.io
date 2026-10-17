@@ -7,8 +7,7 @@ enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term', 'RSS']
 
 [params]
-  description = 'Rooted in Christian faith. Open to renewal. Bonitas Foundation looks to the future with hope and a commitment to lasting change.'
-  tagline = 'Faith. Renewal. Lasting change.'
+  description = 'Bonitas Foundation. Website coming soon.'
 
 [[menus.main]]
   name = 'Home'

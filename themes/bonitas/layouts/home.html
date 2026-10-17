@@ -2,7 +2,7 @@
 <section class="home-hero wrap" aria-labelledby="home-heading">
   <div class="home-copy">
     <h1 id="home-heading">{{ .Params.heading }}</h1>
-    <p class="home-intro">{{ .Params.intro }}</p>
+    {{ with .Params.intro }}<p class="home-intro">{{ . }}</p>{{ end }}
     <div class="home-description">{{ .Content }}</div>
     {{ with site.GetPage .Params.linkPage }}
     <a class="button" href="{{ .RelPermalink }}">{{ $.Params.linkLabel }}</a>

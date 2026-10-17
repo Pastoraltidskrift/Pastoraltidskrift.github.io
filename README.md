@@ -1,7 +1,7 @@
 # Bonitas Foundation
 
 Hugo-sajt för **https://bonitasfoundation.org/** med ett eget tema, `bonitas`.
-Startsidan är en “Coming soon”-sida och `/about/` beskriver stiftelsens värdegrund.
+Startsidan är en “Coming soon”-sida och `/about/` är förberedd för kommande information.
 
 ## Arbeta lokalt
 
@@ -24,7 +24,7 @@ Byggresultatet hamnar i `public/` och ska inte checkas in.
 ## Innehåll och form
 
 - `content/_index.md`: rubrik, ingress, text och länk på startsidan.
-- `content/about.md`: About-sidans text, värdeord och avslutning.
+- `content/about.md`: About-sidans rubrik och platshållartext.
 - `hugo.toml`: domän, sidtitel, beskrivning, sidfot och meny.
 - `themes/bonitas/layouts/`: Hugo-mallar, inklusive en egen 404-sida.
 - `themes/bonitas/assets/css/main.css`: responsiv layout och färgpalett.

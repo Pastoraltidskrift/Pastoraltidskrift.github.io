@@ -102,6 +102,7 @@ img { display: block; width: 100%; height: auto; }
 .value p { max-width: 34ch; margin-top: 15px; color: var(--muted); font-size: 19px; line-height: 1.7; }
 .about-image { overflow: hidden; height: clamp(240px, 36vw, 440px); background: var(--light-olive); }
 .about-image img { height: 100%; object-fit: cover; }
+.about-heading + .about-image { margin-block: 48px 40px; }
 .about-closing { padding-block: 45px 48px; color: var(--dark-olive); font-size: clamp(26px, 3.1vw, 40px); line-height: 1.4; text-align: center; text-wrap: balance; }
 .not-found { padding-block: 90px 120px; }
 .not-found > p:not(.page-label) { max-width: 45ch; margin-top: 24px; color: var(--muted); font-size: 21px; line-height: 1.65; }

@@ -1,14 +1,16 @@
 {{ define "main" }}
 <article class="about wrap" aria-labelledby="about-heading">
   <header class="about-heading">
-    <p class="page-label">{{ .Title }}</p>
+    {{ if ne .Title (.Params.heading | default .Title) }}<p class="page-label">{{ .Title }}</p>{{ end }}
     <h1 id="about-heading">{{ .Params.heading | default .Title }}</h1>
     {{ with .Params.intro }}<p class="about-intro">{{ . }}</p>{{ end }}
   </header>
+  {{ with .Content }}
   <div class="about-story">
-    <div class="about-symbol">{{ partial "cross.html" . }}</div>
-    <div class="prose">{{ .Content }}</div>
+    <div class="about-symbol">{{ partial "cross.html" $ }}</div>
+    <div class="prose">{{ . }}</div>
   </div>
+  {{ end }}
   {{ with .Params.values }}
   <section class="values" aria-labelledby="values-heading">
     <h2 id="values-heading">{{ $.Params.valuesHeading }}</h2>
@@ -25,6 +27,6 @@
   <div class="about-image">
     {{ partial "landscape.html" (dict "alt" .Params.imageAlt "banner" true) }}
   </div>
-  <p class="about-closing">{{ .Params.closing }}</p>
+  {{ with .Params.closing }}<p class="about-closing">{{ . }}</p>{{ end }}
 </article>
 {{ end }}
