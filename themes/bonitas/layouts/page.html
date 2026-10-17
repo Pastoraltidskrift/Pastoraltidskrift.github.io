@@ -1,0 +1,30 @@
+{{ define "main" }}
+<article class="about wrap" aria-labelledby="about-heading">
+  <header class="about-heading">
+    <p class="page-label">{{ .Title }}</p>
+    <h1 id="about-heading">{{ .Params.heading | default .Title }}</h1>
+    {{ with .Params.intro }}<p class="about-intro">{{ . }}</p>{{ end }}
+  </header>
+  <div class="about-story">
+    <div class="about-symbol">{{ partial "cross.html" . }}</div>
+    <div class="prose">{{ .Content }}</div>
+  </div>
+  {{ with .Params.values }}
+  <section class="values" aria-labelledby="values-heading">
+    <h2 id="values-heading">{{ $.Params.valuesHeading }}</h2>
+    <div class="values-grid">
+      {{ range . }}
+      <section class="value">
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </section>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+  <div class="about-image">
+    {{ partial "landscape.html" (dict "alt" .Params.imageAlt "banner" true) }}
+  </div>
+  <p class="about-closing">{{ .Params.closing }}</p>
+</article>
+{{ end }}

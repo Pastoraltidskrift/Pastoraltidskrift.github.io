@@ -1,0 +1,6 @@
+name = 'Bonitas'
+description = 'A quiet, typography-led coming-soon and about theme for Bonitas Foundation.'
+min_version = '0.166.0'
+
+[author]
+  name = 'Bonitas Foundation'

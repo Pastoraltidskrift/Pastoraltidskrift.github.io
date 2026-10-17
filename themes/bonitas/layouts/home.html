@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="home-hero wrap" aria-labelledby="home-heading">
+  <div class="home-copy">
+    <h1 id="home-heading">{{ .Params.heading }}</h1>
+    <p class="home-intro">{{ .Params.intro }}</p>
+    <div class="home-description">{{ .Content }}</div>
+    {{ with site.GetPage .Params.linkPage }}
+    <a class="button" href="{{ .RelPermalink }}">{{ $.Params.linkLabel }}</a>
+    {{ end }}
+  </div>
+  <div class="home-image">
+    {{ partial "landscape.html" (dict "alt" .Params.imageAlt) }}
+  </div>
+</section>
+{{ end }}

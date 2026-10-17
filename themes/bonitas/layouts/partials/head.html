@@ -1,0 +1,29 @@
+{{- $title := site.Title -}}
+{{- if not .IsHome -}}{{- $title = printf "%s | %s" .Title site.Title -}}{{- end -}}
+{{- $description := .Description | default site.Params.description -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="theme-color" content="#5c6e2f">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="preload" href="{{ "fonts/calendas-plus-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{- with resources.Get "css/main.css" | minify | fingerprint "sha384" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with resources.Get "images/wheat-field.png" }}
+  {{- $social := .Fill "1200x630 Center webp q85" }}
+<meta property="og:image" content="{{ $social.Permalink }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Golden wheat in warm evening light.">
+{{- end }}
+<meta name="twitter:card" content="summary_large_image">
+{{ hugo.Generator }}

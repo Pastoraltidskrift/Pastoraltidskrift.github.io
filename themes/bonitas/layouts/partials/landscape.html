@@ -1,0 +1,21 @@
+{{- $banner := .banner | default false -}}
+{{- with resources.Get "images/wheat-field.png" -}}
+  {{- $small := .Fill "480x576 Right webp" -}}
+  {{- $medium := .Fill "800x960 Right webp" -}}
+  {{- $large := .Fill "1200x1440 Right webp" -}}
+  {{- if $banner -}}
+    {{- $small = .Fill "640x320 Center webp" -}}
+    {{- $medium = .Fill "1200x600 Center webp" -}}
+    {{- $large = .Fill "1800x900 Center webp" -}}
+  {{- end -}}
+<img
+  src="{{ $medium.RelPermalink }}"
+  srcset="{{ $small.RelPermalink }} {{ $small.Width }}w, {{ $medium.RelPermalink }} {{ $medium.Width }}w, {{ $large.RelPermalink }} {{ $large.Width }}w"
+  sizes="{{ if $banner }}(min-width: 1440px) 1280px, 90vw{{ else }}(min-width: 1440px) 600px, (min-width: 761px) 45vw, 90vw{{ end }}"
+  width="{{ $medium.Width }}"
+  height="{{ $medium.Height }}"
+  alt="{{ $.alt }}"
+  decoding="async"
+  {{ if $banner }}loading="lazy"{{ else }}fetchpriority="high"{{ end }}
+>
+{{- end -}}

@@ -1,0 +1,30 @@
+baseURL = 'https://bonitasfoundation.org/'
+locale = 'en'
+defaultContentLanguage = 'en'
+title = 'Bonitas Foundation'
+theme = 'bonitas'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term', 'RSS']
+
+[params]
+  description = 'Rooted in Christian faith. Open to renewal. Bonitas Foundation looks to the future with hope and a commitment to lasting change.'
+  tagline = 'Faith. Renewal. Lasting change.'
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 20
+
+[caches.images]
+  dir = ':cacheDir/images'
+
+[imaging]
+  resampleFilter = 'Lanczos'
+
+[imaging.webp]
+  quality = 82
